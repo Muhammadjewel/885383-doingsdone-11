@@ -1,4 +1,6 @@
 <?php
+date_default_timezone_set('Asia/Tashkent');
+
 /**
  * Проверяет переданную дату на соответствие формату 'ГГГГ-ММ-ДД'
  *
@@ -161,6 +163,15 @@ function showProjectTasksCount ($tasks, $projectName) {
 
 function isImportantTask($task) {
     return floor(strtotime('now') - strtotime($task['deadline'])) <= 24;
+}
+
+$connection = mysqli_init();
+mysqli_options($connection, MYSQLI_OPT_INT_AND_FLOAT_NATIVE, 1);
+mysqli_real_connect($connection, 'localhost', 'root', '', 'doings_done');
+mysqli_set_charset($connection, 'utf8');
+
+if (!$connection) {
+    print("Ошибка подключения: " . mysqli_connect_error());
 }
 
 $show_complete_tasks = rand(0, 1);
