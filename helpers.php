@@ -161,6 +161,34 @@ function showProjectTasksCount ($tasks, $projectName) {
     return $result;
 }
 
+function dbFetchData ($link, $sql, $data = [], $oneRow = false) {
+    $result = [];
+    $statement = db_get_prepare_stmt($link, $sql, $data);
+    mysqli_stmt_execute($statement);
+    $resource = mysqli_stmt_get_result($statement);
+
+    if ($resource) {
+        if ($oneRow) {
+            $result = mysqli_fetch_assoc($resource);
+        } else {
+            $result = mysqli_fetch_all($resource, MYSQLI_ASSOC);
+        }
+    }
+
+    return $result;
+}
+
+function dbInsertData($link, $sql, $data = []) {
+    $statement = db_get_prepare_stmt($link, $sql, $data);
+    $result = mysqli_stmt_execute($statement);
+
+    if ($result) {
+        $result = mysqli_insert_id($link);
+    }
+
+    return $result;
+}
+
 function isImportantTask($task) {
     return floor(strtotime('now') - strtotime($task['deadline'])) <= 24;
 }
