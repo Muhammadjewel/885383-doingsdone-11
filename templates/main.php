@@ -53,7 +53,7 @@
                     <span class="checkbox__text"><?=htmlspecialchars($task['name']); ?></span>
                 </label>
             </td>
-            <td class="task__date"><?=htmlspecialchars($task['completion_date']); ?></td>
+            <td class="task__date"><?=htmlspecialchars($task['deadline']); ?></td>
             <td class="task__controls"></td>
         </tr>
         <?php endforeach; ?>
