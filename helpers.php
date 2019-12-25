@@ -158,3 +158,5 @@ function showProjectTasksCount ($tasks, $projectName) {
     }
     return $result;
 }
+
+$show_complete_tasks = rand(0, 1);
