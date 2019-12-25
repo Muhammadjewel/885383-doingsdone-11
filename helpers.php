@@ -159,4 +159,8 @@ function showProjectTasksCount ($tasks, $projectName) {
     return $result;
 }
 
+function isImportantTask($task) {
+    return floor(strtotime('now') - strtotime($task['deadline'])) <= 24;
+}
+
 $show_complete_tasks = rand(0, 1);

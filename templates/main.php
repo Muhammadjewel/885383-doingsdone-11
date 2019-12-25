@@ -46,7 +46,7 @@
                 continue;
             }
         ?>
-        <tr class="tasks__item task <?= $task['completed'] ? 'task--completed' : ''; ?>">
+        <tr class="tasks__item task <?=isImportantTask($task) ? 'task--important' : ''; ?> <?= $task['completed'] ? 'task--completed' : ''; ?>">
             <td class="task__select">
                 <label class="checkbox task__checkbox">
                     <input class="checkbox__input visually-hidden" type="checkbox" <?= $task['completed'] ? 'checked' : ''; ?>>

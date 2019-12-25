@@ -22,7 +22,7 @@ $tasks = [
     ],
     [
         'name' => 'Встреча с другом',
-        'deadline' => '22.12.2019',
+        'deadline' => '26.12.2019',
         'category' => 'Входящие',
         'completed' => false
     ],
