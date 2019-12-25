@@ -25,7 +25,7 @@ CREATE TABLE tasks (
   status INT DEFAULT 0,
   name VARCHAR(255) NOT NULL,
   file VARCHAR(255),
-  deadline TIMESTAMP NOT NULL,
+  deadline TIMESTAMP,
   user_id INT NOT NULL,
   project_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
