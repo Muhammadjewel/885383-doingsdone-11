@@ -142,3 +142,19 @@ function include_template($name, array $data = []) {
 
     return $result;
 }
+
+/**
+ *  Показывает количество заданий в заданном категории
+ * @param array $tasks Ассоциативный массив с данными о заданиях
+ * @param string $projectName Название проекта/категории заданий
+ * @return int Количество заданий в проекте
+ */
+function showProjectTasksCount ($tasks, $projectName) {
+    $result = 0;
+    foreach ($tasks as $task) {
+        if ($task['category'] == $projectName) {
+            $result++;
+        }
+    }
+    return $result;
+}

@@ -41,16 +41,6 @@ $tasks = [
     ]
 ];
 
-function showProjectTasksCount ($tasks, $projectName) {
-    $result = 0;
-    foreach ($tasks as $task) {
-        if ($task['category'] == $projectName) {
-            $result++;
-        }
-    }
-    return $result;
-}
-
 $pageContent = include_template('main.php', [
     'projects' => $projects,
     'tasks' => $tasks,
